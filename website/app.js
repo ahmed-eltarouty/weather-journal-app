@@ -2,7 +2,7 @@
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // The personal API Key for OpenWeatherMap API is saved in a named const variable. ?????????? 
 const apiKey = `6ffc19308a0792a81347c074b27b29e9`;
