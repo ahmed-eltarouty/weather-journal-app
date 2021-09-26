@@ -4,6 +4,7 @@
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
+// The personal API Key for OpenWeatherMap API is saved in a named const variable. ?????????? 
 const apiKey = `6ffc19308a0792a81347c074b27b29e9`;
 const url =`https://api.openweathermap.org/data/2.5/weather?zip=`;
 
@@ -16,7 +17,7 @@ button.addEventListener('click',()=>{
 
         if(zipCode){
             try{
-                let data = await fetch(`${url}${zipCode}&appid=${apiKey}`).then(response => response.json())
+                let data = await fetch(`${url}${zipCode}&appid=${apiKey}&units=metric&lang=en`).then(response => response.json())
                 .then(async(data) =>{
                     await fetch("/project",{
                         method:"POST",
