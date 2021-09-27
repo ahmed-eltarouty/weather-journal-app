@@ -31,13 +31,8 @@ button.addEventListener('click',()=>{
                     })
                     console.log(data.main.temp)
                 })
-                .then(async ()=>{
-                    let finalData = await (await fetch('/project')).json();
-                    let {date , feelings, temp} = finalData;
-                    document.querySelector("#date").textContent = `date is:  ${date}`;
-                    document.querySelector("#content").textContent = `message is:  ${feelings}`;
-                    document.querySelector("#temp").textContent = `temp is:  ${temp}`;
-                })
+                .then(updateUI())
+
             }catch(error){
                 console.log(error)
             }
@@ -47,3 +42,16 @@ button.addEventListener('click',()=>{
     }
     weatherValue()
 })
+// ###########################################################################
+const updateUI = async ()=>{
+    try{
+        let finalData = await (await fetch('/project')).json();
+        let {date , feelings, temp} = finalData;
+        document.querySelector("#date").innerHTML = `date is:  ${date}`;
+        document.querySelector("#content").innerHTML = `message is:  ${feelings}`;
+        document.querySelector("#temp").innerHTML = `temp is:  ${temp}`;
+    }catch(error){
+        console.log(error)
+    }
+}
+// #############################################################################
